@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             text-align: center;
-            background: linear-gradient(to bottom right, #4facfe, #00f2fe); /* Gradient background */
+            background: linear-gradient(to bottom right, #4facfe, #00f2fe);
         }
 
         .subtitle {
@@ -30,20 +30,20 @@
         .navbar {
             position: sticky;
             top: 0;
-            background: #ffffff; /* White background for navbar */
-            padding: 15px;
+            background: #ffffff;
+            padding: 10px;
             border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
             gap: 10px;
+            z-index: 1000;
         }
 
         .navbar label {
-            font-weight: 600; /* Slightly heavier for visibility */
+            font-weight: 600;
             font-size: 16px;
             color: #333;
         }
@@ -79,16 +79,20 @@
             width: auto;
         }
 
-        /* Right-aligned button container */
-        .right-buttons {
-            display: inline;
-            gap: 15px;
+        /* Footer button container */
+        .footer {
+            width: 100%;
             position: fixed;
-            bottom: 10px;
-            right: 10px;
+            bottom: 0;
+            background: #67c1ea;
+            padding: 10px 0;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            gap: 15px;
         }
 
-        .right-buttons button {
+        .footer button {
             padding: 12px 20px;
             border-radius: 8px;
             border: none;
@@ -99,14 +103,14 @@
             font-weight: 600;
         }
 
-        .right-buttons button:hover {
+        .footer button:hover {
             background-color: #555;
             transform: scale(1.05);
         }
 
         /* Table styling */
         table {
-            width: 100%;
+            width: 800px;
             border-collapse: collapse;
             margin: 20px auto;
             background-color: #fff;
@@ -131,14 +135,19 @@
         #tableData, #transferResult, #postgresData, #filterResult, #sortResult {
             margin-top: 20px;
         }
-       
+
         h1 {
             margin: 20px 0;
+            margin-bottom: 2px;
             color: #fff;
             display: flex;
-            align-items: center; /* Align items vertically centered */
-            justify-content: center; /* Center align items horizontally */
-            gap: 20px; /* Spacing between items */
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            position: sticky;
+            top: 0;
+            background: linear-gradient(to bottom right, #4facfe, #00f2fe);
+            z-index: 1000;
         }
     </style>
 </head>
@@ -171,21 +180,20 @@
         <button onclick="filterData()">Filter</button>
     </div>
 
-    <div class="right-buttons">
-        <button onclick="transferData()">Transfer Data</button>
-        <button onclick="viewPostgresData()">View Transferred Data</button>
-        <button onclick="endApplication()">End Application</button>
-    </div> 
     
+      
     <div id="tableData"></div>
     <div id="transferResult"></div>
     <div id="postgresData"></div>
     <div id="filterResult"></div>
     <div id="sortResult"></div>
+
+    <div class="footer">
+        <button onclick="transferData()">Transfer Data</button>
+        <button onclick="viewPostgresData()">View Transferred Data</button>
+        <button onclick="endApplication()">End Application</button>
+    </div> 
 </body>
-
-</html>
-
 
     <script>
         function createTable(data) {
@@ -340,5 +348,4 @@
             document.getElementById('sortResult').innerHTML = '';
         }
     </script>
-</body>
 </html>
